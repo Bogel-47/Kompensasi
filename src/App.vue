@@ -1,16 +1,30 @@
 <template>
   <div id="app">
-  <!-- digunakan untuk melakukan input user -->
-  <input v-model="message" placeholder="edit me">
-  <!-- tempat untuk menampilkan inputan user -->
-  <p>Hallo {{ message }}</p>
+    Your Name
+    <!-- digunakan untuk melakukan input user -->
+    <input v-model="value" placeholder="Input Nama Anda">
+    <!-- tempat untuk menampilkan inputan user -->
+    <p>{{inputted}}</p>
   </div>
 </template>
 
 <script>
-
+// digunakan agar ketika user melakukan input maka akan langsung tampil data yang ada
+export default {
+  name: "App",
+  data() {
+    return {
+      value: "",
+      inputted: ""
+    };
+  },
+  watch: {
+    value(val) {
+      this.inputted = `Hallo ${val}`;
+    }
+  }
+};
 </script>
-
 <style>
 /* Style untuk website seperti font dll */
 #app {
